@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Login - Engine</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Acceso.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NominaEngine.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <main class="d-flex bg-login justify-content-center align-items-center">
+       
+        
+        <article class="container m  p justify-content-center d-flex">
+
+            <section class="col-xl-6 col-lg-12 p-5 shadow-lg bg-light rounded-40 shadow-lg border-engine p-5 ">
+
+                <img src="Media/SVG/ENGINIE.svg" alt="EngineAir" class="logo" />
+               
+                <h3 class="py-2 text-center">Iniciar sesión</h3>
+
+                <form asp-controller="Acceso" asp-action="Login" method="post">
+
+                    <div class="mb-3">
+                        <label for="email" class="fw-bold form-label">Correo Electrónico:</label>
+                        <input type="text" class="form-control border border-dark Redondeo-input" id="email" placeholder="Correo" required name="correo">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <i class="fa-solid fa-key " style="font-size: 1.25rem;"></i>
+                        <label for="password" class="fw-bold  form-label">Contraseña:</label>
+                        @*<input class="form-control mb-3" type="password" placeholder="Contraseña" required name="clave" />*@
+                        <input type="password" class="form-control border border-dark Redondeo-input" id="password" placeholder="Contraseña" required name="clave">
+                    </div>
+
+                    <input type="submit" class="btn fw-bold col-sm-12 col-md-6 Redondeo-input" value="Iniciar Sesión"></input>
+
+                    @if (ViewData["Mensaje"] != null)
+                    {
+                        <div class="form-group mt-3 text-center">
+                            <div class="alert alert-info" role="alert">
+                                @ViewData["Mensaje"]
+                            </div>
+                        </div>
+                    }
+                    <div class="text-center mb-4 mt-3">
+                        <a href="#!"><b>¿Olvidaste la contraseña?</b></a>
+                    </div>
+                </form>
+
+            </section>
+
+
+        </article>
+    </main>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
